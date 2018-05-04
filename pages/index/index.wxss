@@ -1,0 +1,11 @@
+.scanResult {
+  padding-top: 50rpx;
+}
+
+.scanResult text {
+  word-break:break-all;
+}
+
+.scanResult button {
+  display: inline-block;
+}

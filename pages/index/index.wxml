@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class="container">
+  <view>
+    <button bindtap="onScan" type="primary"> 扫一扫 </button>
+  </view>
+  <view wx:if="{{ !!scanText }}" class="scanResult">
+    <text>扫描结果：\n</text>
+    <text selectable="true">{{ scanText }}</text>
+    <button bindtap="onCopy"> 复制 </button>
+  </view>
+</view>
