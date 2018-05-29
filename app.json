@@ -5,8 +5,25 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle":"black",
     "navigationBarTitleText": "二维码条形码",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "backgroundColor": "#f8f8f8"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "扫描",
+        "iconPath": "images/scan.png",
+        "selectedIconPath": "images/scan_selected.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "历史",
+        "iconPath": "images/history.png",
+        "selectedIconPath": "images/history_selected.png"
+      }
+    ]
   }
 }
