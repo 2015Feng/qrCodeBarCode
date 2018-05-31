@@ -24,10 +24,10 @@ Page({
       msg: '',
     },
   },
-  onLoad: function () {
+  onLoad () {
 
   },
-  onScan: function() {
+  onScan () {
     wx.scanCode({
       success: (res) => {
         console.log(res);
@@ -46,25 +46,27 @@ Page({
 
         // 存入Storage
         if (this.data.scanResult.text !== '') {
-          let scanLogs = wx.getStorageSync('scanLogs') || []
-          this.data.scanResult.date = Date.now();
-          scanLogs.unshift(this.data.scanResult);
-          wx.setStorageSync('scanLogs', scanLogs);
+          wx.getStorage({
+            key: 'scanLogs',
+            complete: (res) => {
+              console.log(res);
+              let scanLogs = res.data || [];
+              this.data.scanResult.date = Date.now();
+              scanLogs.unshift(this.data.scanResult);
+              wx.setStorageSync('scanLogs', scanLogs);
+            }
+          })
         }
       }
     })
   },
-  onCopy: function() {
+  onCopy () {
+    // 复制到剪贴板
     wx.setClipboardData({
       data: this.data.scanResult.text,
       success: function(res) {
-        wx.getClipboardData({
-          success: function(res) {
-            console.log(res.data) // data
-            wx.showToast({
-              title: '复制成功',
-            })
-          }
+        wx.showToast({
+          title: '复制成功',
         })
       }
     })

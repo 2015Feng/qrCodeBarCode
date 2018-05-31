@@ -1,12 +1,10 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+const formatTime = (template, date) => {
+  var specs = 'YYYY:MM:DD:HH:mm:ss'.split(':');
+  
+  date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+  return date.toISOString().split(/[-:.TZ]/).reduce(function (template, item, i)   {
+    return template.split(specs[i]).join(item);
+  }, template);
 }
 
 const formatNumber = n => {

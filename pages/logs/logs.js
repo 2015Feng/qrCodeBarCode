@@ -5,12 +5,17 @@ Page({
   data: {
     scanLogs: []
   },
-  onLoad: function () {
-    this.setData({
-      scanLogs: (wx.getStorageSync('scanLogs') || []).map(n => {
-        n.date = util.formatTime(new Date(n.date));
-        return n;
-      })
+  onShow () {
+    wx.getStorage({
+      key: 'scanLogs',
+      success: (res) => {
+        this.setData({
+          scanLogs: (res.data || []).map(n => {
+            n.date = util.formatTime('YYYY-MM-DD HH:mm', new Date(n.date));
+            return n;
+          })
+        })
+      }
     })
-  }
+  },
 })

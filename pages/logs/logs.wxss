@@ -1,8 +1,6 @@
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
-}
-.log-item {
-  margin: 10rpx;
+.weui-cell__bd {
+  overflow: hidden;
+  padding-right: 10px;
+  white-space: nowrap;
+  text-overflow:ellipsis;
 }
