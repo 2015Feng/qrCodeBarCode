@@ -1,0 +1,29 @@
+<view class="page">
+    <view class="page__bd">
+        <view wx:if="{{ scanResult.isShow }}" class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">扫描结果</view>
+                    <view class="weui-form-preview__value_in-hd"></view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">类型</view>
+                    <view class="weui-form-preview__value">{{ scanResult.type }}</view>
+                </view>
+                <view wx:if="{{ !scanResult.msg }}" class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">内容</view>
+                    <view class="weui-form-preview__value weui-form-preview__value_in-bd"><text selectable="true">{{ scanResult.text }}</text></view>
+                </view>
+            </view>
+            <view wx:if="{{ !scanResult.msg }}" class="weui-form-preview__ft">
+                <navigator url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="onCopy">复制</navigator>
+            </view>
+        </view>
+
+        <view class="page__bd_spacing">
+          <button bindtap="onDelete" class="weui-btn" type="warn">删除</button>
+        </view>
+    </view>
+</view>

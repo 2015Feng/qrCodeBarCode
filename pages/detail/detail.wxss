@@ -1,0 +1,19 @@
+.scanResult {
+  padding-top: 50rpx;
+}
+
+.scanResult text {
+  word-break:break-all;
+}
+
+.scanResult button {
+  display: inline-block;
+}
+
+.page__bd_spacing {
+  margin-top: 25px;
+}
+
+.weui-form-preview__value_in-bd {
+  color: #000;
+}
