@@ -1,11 +1,17 @@
 <!--logs.wxml-->
 <view class="page">
-  <block wx:for="{{scanLogs}}">
-    <view class="weui-cells weui-cells_after-title">
-      <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+  <view class="page__bd">
+    <block wx:for="{{scanLogs}}">
+      <view class="weui-cells weui-cells_after-title">
+        <navigator url="/pages/detail/detail?id={{ index }}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
           <view class="weui-cell__bd">{{index + 1}}. {{ item.text }}</view>
           <view class="weui-cell__ft weui-cell__ft_in-access">{{ item.date }}</view>
-      </navigator>
+        </navigator>
+      </view>
+    </block>
+
+    <view wx:if="{{ scanLogs.length == 0 }}" class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
     </view>
-  </block>
+  </view>
 </view>
