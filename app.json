@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/code/code",
     "pages/logs/logs",
     "pages/detail/detail"
   ],
@@ -18,6 +19,12 @@
         "text": "扫描",
         "iconPath": "images/scan.png",
         "selectedIconPath": "images/scan_selected.png"
+      },
+      {
+        "pagePath": "pages/code/code",
+        "text": "生成",
+        "iconPath": "images/code.png",
+        "selectedIconPath": "images/code_selected.png"
       },
       {
         "pagePath": "pages/logs/logs",

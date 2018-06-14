@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-cells__title">二维码</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="请输二维码文本" style="height: 5em" value="{{ codeText }}" bindinput="bindInput" />
+            <!--<view class="weui-textarea-counter">0/200</view>-->
+          </view>
+        </view>
+    </view>
+    <view>
+      <image src="data:image/png;base64," style="display: block;"></image>
+    </view>
+    <view class="page__bd_spacing">
+      <button bindtap="onGenerate" class="weui-btn" type="primary">生成</button>
+    </view>
+  </view>
+</view>
