@@ -2,6 +2,8 @@
 //获取应用实例
 const app = getApp()
 
+import drawQrcode from '../../utils/weapp.qrcode.min.js'
+
 // 扫描类型
 const scanType = {
   'WX_CODE': '微信小程序',
@@ -28,6 +30,15 @@ Page({
     })
   },
   onGenerate () {
-    console.log(this.data.codeText);
+    drawQrcode({
+      width: 200,
+      height: 200,
+      canvasId: 'qrCode',
+      typeNumber: -1,
+      text: this.data.codeText,
+      callback(e) {
+        console.log('e: ', e)
+      }
+    })
   }
 })

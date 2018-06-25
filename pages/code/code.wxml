@@ -9,11 +9,11 @@
           </view>
         </view>
     </view>
-    <view>
-      <image src="data:image/png;base64," style="display: block;"></image>
-    </view>
     <view class="page__bd_spacing">
       <button bindtap="onGenerate" class="weui-btn" type="primary">生成</button>
+    </view>
+    <view>
+      <canvas style="width: 200px; height: 200px;" canvas-id="qrCode"></canvas>
     </view>
   </view>
 </view>
