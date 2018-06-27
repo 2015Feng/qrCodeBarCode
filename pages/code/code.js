@@ -20,6 +20,10 @@ Page({
     })
   },
   onGenerate() {
+    if (this.data.codeText === '') {
+      return;
+    }
+
     drawQrcode({
       width: 200,
       height: 200,
@@ -27,10 +31,25 @@ Page({
       typeNumber: -1,
       text: this.data.codeText,
       callback: (e) => {
+        console.log(e);
         // 绘制成功
         if (e.errMsg == 'drawCanvas:ok') {
           this.setData({
             isHidden: false,
+          })
+
+          // 存入Storage
+          wx.getStorage({
+            key: 'generateLogs',
+            complete: (res) => {
+              let generateLogs = res.data || [];
+              generateLogs.unshift({
+                type: '二维码',
+                text: this.data.codeText,
+                date: Date.now(),
+              });
+              wx.setStorageSync('generateLogs', generateLogs);
+            }
           })
 
           // 保存临时图片
