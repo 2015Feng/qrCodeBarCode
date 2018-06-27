@@ -24,6 +24,10 @@ Page({
       return;
     }
 
+    this.setData({
+      isHidden: false,
+    })
+
     drawQrcode({
       width: 200,
       height: 200,
@@ -34,10 +38,6 @@ Page({
         console.log(e);
         // 绘制成功
         if (e.errMsg == 'drawCanvas:ok') {
-          this.setData({
-            isHidden: false,
-          })
-
           // 存入Storage
           wx.getStorage({
             key: 'generateLogs',
