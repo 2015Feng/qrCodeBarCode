@@ -4,41 +4,76 @@ const app = getApp()
 
 import drawQrcode from '../../utils/weapp.qrcode.min.js'
 
-// 扫描类型
-const scanType = {
-  'WX_CODE': '微信小程序',
-  'QR_CODE': '二维码',
-  'EAN_8': '条形码（EAN_8）',
-  'EAN_13': '条形码（EAN_13）',
-  'UPC_A': '条形码（UPC_A）',
-  'UPC_E': '条形码（UPC_E）',
-  'CODE_25': '条形码（CODE_25）',
-  'CODE_39': '条形码（CODE_39）',
-  'CODE_128': '条形码（CODE_128）',
-}
-
 Page({
   data: {
-    codeText: ''
+    codeText: '',
+    isHidden: true,
+    tempFilePath: '',
   },
-  onLoad () {
+  onLoad() {
 
   },
-  bindInput: function(e) {
+  bindInput: function (e) {
     this.setData({
-      codeText: e.detail.value
+      codeText: e.detail.value,
+      isHidden: true,
     })
   },
-  onGenerate () {
+  onGenerate() {
     drawQrcode({
       width: 200,
       height: 200,
       canvasId: 'qrCode',
       typeNumber: -1,
       text: this.data.codeText,
-      callback(e) {
-        console.log('e: ', e)
+      callback: (e) => {
+        // 绘制成功
+        if (e.errMsg == 'drawCanvas:ok') {
+          this.setData({
+            isHidden: false,
+          })
+
+          // 保存临时图片
+          wx.canvasToTempFilePath({
+            x: 0,
+            y: 0,
+            width: 200,
+            height: 200,
+            destWidth: 200,
+            destHeight: 200,
+            canvasId: 'qrCode',
+            success: (res) => {
+              this.setData({
+                tempFilePath: res.tempFilePath
+              })
+            }
+          })
+        }
       }
     })
-  }
+  },
+  onSave() {
+    wx.saveImageToPhotosAlbum({
+      filePath: this.data.tempFilePath,
+      success: (res) => {
+        wx.showToast({
+          title: '已保存到相册',
+        })
+      },
+      fail: (e) => {
+        if (e.errMsg == 'saveImageToPhotosAlbum:fail auth deny') {
+          wx.openSetting({
+            success: (res) => {
+              /*
+               * res.authSetting = {
+               *   "scope.userInfo": true,
+               *   "scope.userLocation": true
+               * }
+               */
+            }
+          })
+        }
+      }
+    })
+  },
 })

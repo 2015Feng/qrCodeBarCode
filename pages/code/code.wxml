@@ -11,9 +11,10 @@
     </view>
     <view class="page__bd_spacing">
       <button bindtap="onGenerate" class="weui-btn" type="primary">生成</button>
-    </view>
-    <view>
-      <canvas style="width: 200px; height: 200px;" canvas-id="qrCode"></canvas>
+      <view hidden="{{ isHidden }}">
+        <canvas class="code_canvas" canvas-id="qrCode"></canvas>
+        <button bindtap="onSave" class="weui-btn" type="primary">保存到相册</button>
+      </view>
     </view>
   </view>
 </view>
