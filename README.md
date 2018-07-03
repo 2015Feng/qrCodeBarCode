@@ -10,19 +10,19 @@
 
 二维码、条形码识别
 
-<img src="https://github.com/2015Feng/qrCodeBarCode/raw/assets/screenshots/index.png?raw=true" alt="二维码、条形码识别" title="二维码、条形码识别" style="height: 640px;">
+<img src="https://github.com/2015Feng/qrCodeBarCode/raw/assets/screenshots/index.png?raw=true" alt="二维码、条形码识别" title="二维码、条形码识别" height="640">
 
 二维码生成
 
-<img src="https://github.com/2015Feng/qrCodeBarCode/blob/assets/screenshots/code.png?raw=true" alt="二维码生成" title="二维码生成" style="height: 640px;">
+<img src="https://github.com/2015Feng/qrCodeBarCode/blob/assets/screenshots/code.png?raw=true" alt="二维码生成" title="二维码生成" height="640">
 
 识别、生成历史
 
-<img src="https://github.com/2015Feng/qrCodeBarCode/blob/assets/screenshots/logs.png?raw=true" alt="识别、生成历史" title="识别、生成历史" style="height: 640px;">
+<img src="https://github.com/2015Feng/qrCodeBarCode/blob/assets/screenshots/logs.png?raw=true" alt="识别、生成历史" title="识别、生成历史" height="640">
 
 识别、生成详情
 
-<img src="https://github.com/2015Feng/qrCodeBarCode/blob/assets/screenshots/detail.png?raw=true" alt="识别、生成详情" title="识别、生成详情" style="height: 640px;">
+<img src="https://github.com/2015Feng/qrCodeBarCode/blob/assets/screenshots/detail.png?raw=true" alt="识别、生成详情" title="识别、生成详情" height="640">
 
 #### 二维码生成
 
